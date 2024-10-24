@@ -5,7 +5,7 @@ from geopy.geocoders import Nominatim
 import json
 from urllib.request import urlopen
 
-API_key = "AIzaSyDYe_RXCMUYRydDBuTURlKQqc3KIva2948"
+
 def get_location(name):
 
     if "me" in name.lower():
