@@ -1,11 +1,11 @@
-#from dotenv import load_dotenv
+from dotenv import load_dotenv
 import googlemaps
 import os
 from geopy.geocoders import Nominatim
 import json
 from urllib.request import urlopen
 
-
+API_key = "AIzaSyDYe_RXCMUYRydDBuTURlKQqc3KIva2948"
 def get_location(name):
 
     if "me" in name.lower():
@@ -41,15 +41,15 @@ def milesToMeter(miles):
 
 def find_places_nearby(location, search_string, preference):
 
-   # load_dotenv()
+    load_dotenv()
 
-    map_client = googlemaps.Client("AIzaSyDYe_RXCMUYRydDBuTURlKQqc3KIva2948")
+    map_client = googlemaps.Client(os.getenv("token"))
     print(location)
     loc = get_location(location)
     if loc == "invalid":
         return "invalid location"
 
-    distance = milesToMeter(5)
+    distance = milesToMeter(25)
     blist = []
 
    # finding places ranked by preference (popularity by default)
@@ -78,7 +78,7 @@ def find_places_nearby(location, search_string, preference):
 
     if len(blist) == 0:
         return "No results found / Invalid search type"
-    for i in range(3):
+    for i in range(5):
 
         final_list[blist[i]["name"]] = blist[i]["rating"]
         response = map_client.place(

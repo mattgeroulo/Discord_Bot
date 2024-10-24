@@ -1,10 +1,10 @@
-#from dotenv import load_dotenv
+from dotenv import load_dotenv
 import os
 import discord
 
 from bot_functions import location
-#load_dotenv()
-Token = "MTExNDY0NDczODIxNDIwNzU4OA.Gcx7VZ.W7rdiL06Rj3WZhxIOe8KTfvZvaiYJ8jfT1TE9A" #os.getenv("token")
+load_dotenv()
+Token = os.getenv("bot_token")#"MTExNDY0NDczODIxNDIwNzU4OA.Gcx7VZ.W7rdiL06Rj3WZhxIOe8KTfvZvaiYJ8jfT1TE9A" 
 
 # gives permissions to bot
 intents = discord.Intents.all()
