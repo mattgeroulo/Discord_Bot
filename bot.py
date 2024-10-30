@@ -21,7 +21,7 @@ class Bot(discord.Client):
             return
         if "hello" in message.content.lower():
             print(f"command recognized: hello")
-            await message.channel.send("Hello!")
+            await message.channel.send("Hello!, use !help for a list of commands!")
 
         if message.content == "react":
             print("react command recognized")
@@ -31,7 +31,8 @@ class Bot(discord.Client):
             print(f"{user} is typing in {channel} at {when}")
             await channel.send(f": see you typing, {user}")
     # places
-    
+        if '!help' in message.content.lower():
+            await message.channel.send("Commands: "+"\n"+ "Where is the airport / terminal"+"\n"+"Security Info")
         if 'security' in message.content.lower():
             await message.channel.send("Security requirements for Philadelphia Airport are:"+"\n"+"Boarding Pass"+"\n"+"Photo ID"+"\n"+"Liquids/gels/aerosols must be less than 3.4 ounces and fit in a 1qt sized bag "+"\n"+"Carry-on bags must be less than 35 lbs and no more than 10”x16”x24” in size "+"\n"+"Checked bags must be less than 40 lbs and no longer than 62” "+"\n"+"All firearms must be unloaded and in checked bags " )
         if 'find' in message.content.lower():
